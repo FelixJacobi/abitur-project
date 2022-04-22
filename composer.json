@@ -10,11 +10,11 @@
     }
   ],
   "require": {
-    "twig/twig": "2.0",
-    "swiftmailer/swiftmailer": "v6.0.1",
-    "components/jquery": "3.2.1",
-    "components/bootstrap": "3.3.7",
-    "tecnickcom/tcpdf": "6.2.12"
+    "twig/twig": "^2.0",
+    "swiftmailer/swiftmailer": "^6.0.1",
+    "components/jquery": "^3.2.1",
+    "components/bootstrap": "^3.3.7",
+    "tecnickcom/tcpdf": "^6.2.12"
   },
   "autoload": {
     "psr-4": {"Blinkfair\\": "src/"}
