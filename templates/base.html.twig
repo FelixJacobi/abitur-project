@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{%  block page_title %}[PAGE TITLE MISSING]{%  endblock %} - Blinkfair</title>
+        <link rel="stylesheet" type="text/css" href="/felix/vendor/components/bootstrap/css/bootstrap.css" />
+        <meta name=viewport content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>{%  block title %}[PAGE TITLE MISSING]{%  endblock %}</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="alert-hook"></div>
+                </div>
+            </div>
+            {%  block content %}
+            {%  endblock %}
+        </div>
+        {%  block javascripts %}
+            <script type="text/javascript" src="/felix/vendor/components/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="/felix/vendor/components/bootstrap/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="/felix/js/blinkfair.js"></script>
+            <script type="text/javascript" src="/felix/js/alert.js"></script>
+        {%  endblock %}
+    </body>
+</html>

@@ -1,0 +1,74 @@
+{%  spaceless %}
+<p><small>Blinkfair Handelsgenossenschaft Frahmstraße 15a/b 22587 Hamburg</small></p>
+<p>
+    {{ firstname }} {{ lastname }}<br />
+    {{ street }} {{ number }}<br />
+    {{  plz }} {{ city }}<br />
+</p>
+<p style="text-align: right">
+    Datum: {{ date|date('d.m.Y') }}
+</p>
+<h1>Rechnung für Ihre Bestellung</h1>
+<table>
+    <thead>
+        <tr style="text-align: center">
+            <td>
+                Produkt
+            </td>
+            <td>
+                Anzahl
+            </td>
+            <td>
+                Preis
+            </td>
+        </tr>
+    </thead>
+{%  for product in products %}
+    <tr style="text-align: center">
+        <td>{{ product.name }}</td>
+        <td>{{ product.amount }}</td>
+        <td>{{ product.price }}</td>
+    </tr>
+{% endfor %}
+</table>
+{%  if espresso %}
+    <p>
+        Ihr Espresso wird gemäß Ihrem Wunsch mit folgenden Mahlgrad geliefert: <strong>{{ mahlgrad }}</strong>
+    </p>
+{%  endif %}
+<p>
+    <strong>Endsumme:</strong> {{ full_price }}
+</p>
+<p>
+    <strong>Bezahltyp:</strong> {{ pay_type }}
+</p>
+<p>
+    <strong>Hinweise zur Bezahlung:</strong> {{ pay_msg|raw }}
+</p>
+<p>
+    <strong>Versandart:</strong> {{ ship_type }} - {{ ship_msg }}
+</p>
+{% if ship == 'officepost' %}
+    <p>
+        <strong>Hinweise zum Versand:</strong> Ihre Bestellung wird an folgende Behördennummer versendet: {{ office_number }}.
+    </p>
+{%  elseif ship == 'hermes' and pay == 'cash' %}
+    <p>
+        <strong>Hinweise zum Versand:</strong> Im Falle der persönlichen Bezahlung kann die Lieferung auch kurzfristig bei der Bezahlung persönlich in Empfang genommen werden, die Versandkosten werden Ihnen dann zurückerstattet.
+    </p>
+{%  elseif ship == 'self' %}
+    <p>
+        <strong>Hinweise zur Abholung:</strong> Die Adresse, an der Sie Ihre Lieferung abholen können, lautet:
+    </p>
+    <p>
+        Stadtteilschule Blankense<br />
+        Handelsgenossenschaft Blinkfair<br />
+        Abstellkammer des Kunstraums R111<br />
+        Frahmstraße 15 a/b<br />
+        22587 Hamburg
+    </p>
+{% endif %}
+<h2>
+    Vielen Dank für Ihre Bestellung!
+</h2>
+{%  endspaceless %}
